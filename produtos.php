@@ -1,9 +1,17 @@
 <?php 
-        include_once './includes/_dados.php';
+        //include_once './includes/_dados.php';
+        include_once './includes/_banco.php';
         include_once './includes/_head.php';
-        include_once'./includes/_functions.php';
+        include_once './includes/_functions.php';
         $paginaAtual='produtos';
         include_once './includes/_header.php';
+
+        $sql = mysqli_query($conn,"SELECT * FROM categorias") or die("Erro");
+        while ($dados = mysqli_fetch_assoc($sql)){
+            echo '<pre>';
+            print_r($dados);
+            echo '</pre>';
+        }
     ?>
     <main class="container">
         <section id="produtos">
